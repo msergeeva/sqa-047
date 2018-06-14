@@ -1,6 +1,7 @@
 package net.shipovalov.training;
 
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
@@ -16,8 +17,9 @@ public class CreateProjectTest {
     @BeforeMethod
     public void setUp() throws Exception {
         System.setProperty("webdriver.chrome.driver", "src\\test\\resources\\chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+        System.setProperty("webdriver.ie.driver", "src\\test\\resources\\IEDriverServer.exe");
+        driver = new InternetExplorerDriver();
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         openLoginPage();
         login();
@@ -48,14 +50,6 @@ public class CreateProjectTest {
         fillProjectForm();
         submitProjectForm();
     }
-
-
-
-
-
-
-
-
 
     private void submitProjectForm() {
         driver.findElement(By.cssSelector("input.button")).click();
