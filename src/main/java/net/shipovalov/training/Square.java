@@ -11,7 +11,7 @@ public class Square {
 
 
 
-    public double sayArea(){
+    public double sayAreaToo(){
         return lenght*lenght;
     }
 

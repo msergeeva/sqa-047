@@ -10,14 +10,14 @@ public class AreaTest {
     @Test
     public void testSquareAreaPositive() {
         Square s = new Square(5);
-        Assert.assertEquals(25.0, s.sayArea());
+        Assert.assertEquals(25.0, s.sayAreaToo());
 
     }
 
     @Test
     private void testSquareAreaNegative() {
         Square s = new Square(5);
-        Assert.assertEquals(25.0, s.sayArea());
+        Assert.assertEquals(25.0, s.sayAreaToo());
 
     }
 
