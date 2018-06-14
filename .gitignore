@@ -3,6 +3,8 @@
 .idea/workspace.xml
 .idea/misc.xml
 /out/
+src/test/resources/chromedriver.exe
+
 # Ignore Gradle GUI config
 gradle-app.setting
 

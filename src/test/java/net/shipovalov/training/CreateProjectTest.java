@@ -7,7 +7,6 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.*;
 
 public class CreateProjectTest {
@@ -15,8 +14,11 @@ public class CreateProjectTest {
     
     @BeforeMethod
     public void setUp() throws Exception {
+        System.setProperty("webdriver.chrome.driver", "src\\test\\resources\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
+
     }
     
     @Test
@@ -28,7 +30,6 @@ public class CreateProjectTest {
         driver.findElement(By.name("password")).click();
         driver.findElement(By.name("password")).clear();
         driver.findElement(By.name("password")).sendKeys("luxoft");
-        driver.findElement(By.cssSelector("html")).click();
         driver.findElement(By.cssSelector("input.button")).click();
         driver.findElement(By.linkText("Manage")).click();
         driver.findElement(By.linkText("Manage Projects")).click();
@@ -40,7 +41,6 @@ public class CreateProjectTest {
         driver.findElement(By.name("description")).clear();
         driver.findElement(By.name("description")).sendKeys("Yhis is tets fggfghghfgh");
         driver.findElement(By.cssSelector("input.button")).click();
-        driver.findElement(By.linkText("Proceed")).click();
         driver.findElement(By.linkText("Logout")).click();
     }
     
