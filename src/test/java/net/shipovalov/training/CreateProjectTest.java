@@ -18,12 +18,11 @@ public class CreateProjectTest {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         driver.manage().window().maximize();
-
+        openLoginPage();
+        login();
     }
-    
-    @Test
-    public void createProjectTest() {
-        driver.get("http://shipovalov.net/login_page.php");
+
+    private void login() {
         driver.findElement(By.name("username")).click();
         driver.findElement(By.name("username")).clear();
         driver.findElement(By.name("username")).sendKeys("student");
@@ -31,22 +30,55 @@ public class CreateProjectTest {
         driver.findElement(By.name("password")).clear();
         driver.findElement(By.name("password")).sendKeys("luxoft");
         driver.findElement(By.cssSelector("input.button")).click();
-        driver.findElement(By.linkText("Manage")).click();
-        driver.findElement(By.linkText("Manage Projects")).click();
-        driver.findElement(By.xpath("//table[3]/tbody/tr[1]/td/form/input[2]")).click();
+    }
+
+    private void openLoginPage() {
+        driver.get("http://shipovalov.net/login_page.php");
+    }
+
+    @Test
+    public void createProjectTest() {
+        openManagePage();
+        openManageProjectPage();
+        initProjectCreation();
+        fillProjectForm();
+        submitProjectForm();
+
+    }
+
+    private void submitProjectForm() {
+        driver.findElement(By.cssSelector("input.button")).click();
+    }
+
+    private void fillProjectForm() {
         driver.findElement(By.name("name")).click();
         driver.findElement(By.name("name")).clear();
         driver.findElement(By.name("name")).sendKeys("Championchip gor2014");
         driver.findElement(By.name("description")).click();
         driver.findElement(By.name("description")).clear();
         driver.findElement(By.name("description")).sendKeys("Yhis is tets fggfghghfgh");
-        driver.findElement(By.cssSelector("input.button")).click();
-        driver.findElement(By.linkText("Logout")).click();
     }
-    
+
+    private void initProjectCreation() {
+        driver.findElement(By.xpath("//table[3]/tbody/tr[1]/td/form/input[2]")).click();
+    }
+
+    private void openManageProjectPage() {
+        driver.findElement(By.linkText("Manage Projects")).click();
+    }
+
+    private void openManagePage() {
+        driver.findElement(By.linkText("Manage")).click();
+    }
+
     @AfterMethod
     public void tearDown() {
+        logout();
         driver.quit();
+    }
+
+    private void logout() {
+        driver.findElement(By.linkText("Logout")).click();
     }
 
 }
