@@ -1,6 +1,7 @@
 package net.shipovalov.training;
 
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
@@ -30,11 +31,14 @@ public class CreateProjectTest {
         driver.findElement(By.name("password")).clear();
         driver.findElement(By.name("password")).sendKeys("luxoft");
         driver.findElement(By.cssSelector("input.button")).click();
+        selectProject();
     }
 
     private void openLoginPage() {
         driver.get("http://shipovalov.net/login_page.php");
     }
+
+
 
     @Test
     public void createProjectTest() {
@@ -43,8 +47,15 @@ public class CreateProjectTest {
         initProjectCreation();
         fillProjectForm();
         submitProjectForm();
-
     }
+
+
+
+
+
+
+
+
 
     private void submitProjectForm() {
         driver.findElement(By.cssSelector("input.button")).click();
@@ -81,4 +92,10 @@ public class CreateProjectTest {
         driver.findElement(By.linkText("Logout")).click();
     }
 
+
+
+    private void selectProject(){
+        Select select = new Select(driver.findElement(By.name("project_id")));
+        select.selectByVisibleText("11122");
+    }
 }
