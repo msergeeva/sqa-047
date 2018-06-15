@@ -10,7 +10,7 @@ public class ModificationProjectTest extends TestBase{
         openManagePage();
         openManageProjectPage();
         selectFirstProject();
-        fillProjectForm("Project" , "Description-2");
+        fillProjectForm(new ProjectData("Project", "Description-2"));
         submitProjectForm();
     }
 

@@ -2,6 +2,7 @@ package net.shipovalov.training;
 
 import org.testng.annotations.Test;
 
+
 public class CreateProjectTest extends TestBase{
 
 
@@ -10,7 +11,7 @@ public class CreateProjectTest extends TestBase{
         openManagePage();
         openManageProjectPage();
         initProjectCreation();
-        fillProjectForm("Championchip gor2014", "Yhis is tets fggfghghfgh");
+        fillProjectForm(new ProjectData("Championchip gor2014", "Yhis is tets fggfghghfgh"));
         submitProjectForm();
     }
 
@@ -19,7 +20,7 @@ public class CreateProjectTest extends TestBase{
         openManagePage();
         openManageProjectPage();
         initProjectCreation();
-        fillProjectForm("Championchip gor2014", "");
+        fillProjectForm(new ProjectData("Championchip gor2014", ""));
         submitProjectForm();
     }
 

@@ -20,16 +20,16 @@ public class TestBase {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         openLoginPage("http://shipovalov.net");
-        login("student", "luxoft");
+        login(new UserData("student", "luxoft"));
     }
 
-    private void login(String username, String password) {
+    private void login(UserData userData) {
         driver.findElement(By.name("username")).click();
         driver.findElement(By.name("username")).clear();
-        driver.findElement(By.name("username")).sendKeys(username);
+        driver.findElement(By.name("username")).sendKeys(userData.getUsername());
         driver.findElement(By.name("password")).click();
         driver.findElement(By.name("password")).clear();
-        driver.findElement(By.name("password")).sendKeys(password);
+        driver.findElement(By.name("password")).sendKeys(userData.getPassword());
         driver.findElement(By.cssSelector("input.button")).click();
         selectProject();
     }
@@ -42,13 +42,13 @@ public class TestBase {
         driver.findElement(By.cssSelector("input.button")).click();
     }
 
-    protected void fillProjectForm(String projectName, String projectDescription) {
+    protected void fillProjectForm(ProjectData projectData) {
         driver.findElement(By.name("name")).click();
         driver.findElement(By.name("name")).clear();
-        driver.findElement(By.name("name")).sendKeys(projectName);
+        driver.findElement(By.name("name")).sendKeys(projectData.getProjectName());
         driver.findElement(By.name("description")).click();
         driver.findElement(By.name("description")).clear();
-        driver.findElement(By.name("description")).sendKeys(projectDescription);
+        driver.findElement(By.name("description")).sendKeys(projectData.getProjectDescription());
     }
 
     protected void initProjectCreation() {
