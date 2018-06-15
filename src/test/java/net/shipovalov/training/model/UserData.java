@@ -1,13 +1,20 @@
 package net.shipovalov.training.model;
 
 public class UserData {
-    private final String username;
-    private final String password;
+    private  String username;
+    private  String password;
 
-    public UserData(String username, String password) {
-        this.username = username;
-        this.password = password;
+
+    public UserData withUserName(String name){
+        this.username = name;
+        return this;
     }
+
+    public UserData withUserPassword(String password){
+        this.password = password;
+        return this;
+    }
+
 
     public String getUsername() {
         return username;

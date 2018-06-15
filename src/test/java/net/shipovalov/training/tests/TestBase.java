@@ -22,7 +22,9 @@ public class TestBase {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         openLoginPage("http://shipovalov.net");
-        login(new UserData("student", "luxoft"));
+        login(new UserData()
+                .withUserPassword("luxoft")
+                .withUserName("student"));
     }
 
     private void login(UserData userData) {

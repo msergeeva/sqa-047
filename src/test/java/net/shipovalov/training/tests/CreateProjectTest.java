@@ -12,7 +12,9 @@ public class CreateProjectTest extends TestBase {
         openManagePage();
         openManageProjectPage();
         initProjectCreation();
-        fillProjectForm(new ProjectData("Championchip gor2014", "Yhis is tets fggfghghfgh"));
+        fillProjectForm(new ProjectData().
+                withName("Name2").
+                withDescription("Same description"));
         submitProjectForm();
     }
 
@@ -21,7 +23,9 @@ public class CreateProjectTest extends TestBase {
         openManagePage();
         openManageProjectPage();
         initProjectCreation();
-        fillProjectForm(new ProjectData("Championchip gor2014", ""));
+        fillProjectForm(new ProjectData().
+                withName("Name3").
+                withDescription("Same description"));
         submitProjectForm();
     }
 
