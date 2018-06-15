@@ -1,5 +1,6 @@
 package net.shipovalov.training.tests;
 
+import net.shipovalov.training.application.ApplicationManager;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
