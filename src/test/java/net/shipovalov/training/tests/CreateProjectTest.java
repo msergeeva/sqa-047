@@ -13,7 +13,7 @@ public class CreateProjectTest extends TestBase {
         app.openManageProjectPage();
         app.initProjectCreation();
         app.fillProjectForm(new ProjectData().
-                withName("Name2").
+                withName("Name23").
                 withDescription("Same description"));
         app.submitProjectForm();
     }
