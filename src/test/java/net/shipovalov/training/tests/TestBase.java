@@ -1,5 +1,7 @@
-package net.shipovalov.training;
+package net.shipovalov.training.tests;
 
+import net.shipovalov.training.model.ProjectData;
+import net.shipovalov.training.model.UserData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

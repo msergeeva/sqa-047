@@ -1,4 +1,4 @@
-package net.shipovalov.training;
+package net.shipovalov.training.model;
 
 public class ProjectData {
     private final String projectName;

@@ -1,5 +1,6 @@
-package net.shipovalov.training;
+package net.shipovalov.training.tests;
 
+import net.shipovalov.training.Square;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

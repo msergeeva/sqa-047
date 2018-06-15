@@ -1,4 +1,4 @@
-package net.shipovalov.training;
+package net.shipovalov.training.model;
 
 public class UserData {
     private final String username;

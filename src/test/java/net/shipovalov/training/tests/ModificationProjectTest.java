@@ -1,8 +1,9 @@
-package net.shipovalov.training;
+package net.shipovalov.training.tests;
 
+import net.shipovalov.training.model.ProjectData;
 import org.testng.annotations.Test;
 
-public class ModificationProjectTest extends TestBase{
+public class ModificationProjectTest extends TestBase {
 
 
     @Test
