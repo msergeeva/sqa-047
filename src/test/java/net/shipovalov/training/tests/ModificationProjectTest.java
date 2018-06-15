@@ -8,11 +8,11 @@ public class ModificationProjectTest extends TestBase {
 
     @Test
     public void testProjectModification(){
-        openManagePage();
-        openManageProjectPage();
-        selectFirstProject();
-        fillProjectForm(new ProjectData("Project", "Description-2"));
-        submitProjectForm();
+        app.openManagePage();
+        app.openManageProjectPage();
+        app.selectFirstProject();
+        app.fillProjectForm(new ProjectData().withDescription("").withName(""));
+        app.submitProjectForm();
     }
 
 

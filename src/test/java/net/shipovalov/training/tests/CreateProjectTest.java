@@ -9,24 +9,24 @@ public class CreateProjectTest extends TestBase {
 
     @Test
     public void testCreateProject() {
-        openManagePage();
-        openManageProjectPage();
-        initProjectCreation();
-        fillProjectForm(new ProjectData().
+        app.openManagePage();
+        app.openManageProjectPage();
+        app.initProjectCreation();
+        app.fillProjectForm(new ProjectData().
                 withName("Name2").
                 withDescription("Same description"));
-        submitProjectForm();
+        app.submitProjectForm();
     }
 
     @Test
     public void testCreateProjectWithEmptyDescription() {
-        openManagePage();
-        openManageProjectPage();
-        initProjectCreation();
-        fillProjectForm(new ProjectData().
+        app.openManagePage();
+        app.openManageProjectPage();
+        app.initProjectCreation();
+        app.fillProjectForm(new ProjectData().
                 withName("Name3").
                 withDescription("Same description"));
-        submitProjectForm();
+        app.submitProjectForm();
     }
 
 
