@@ -1,6 +1,5 @@
 package net.shipovalov.training.application;
 
-import net.shipovalov.training.model.ProjectData;
 import net.shipovalov.training.model.UserData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,6 +10,12 @@ import java.util.concurrent.TimeUnit;
 public class ApplicationManager {
 
     WebDriver driver;
+
+    public ProjectHelper projects() {
+        return getProjectHelper;
+    }
+
+    private ProjectHelper getProjectHelper;
     private SessionHelper getSessionHelper;
 
     public void init() {
@@ -20,6 +25,7 @@ public class ApplicationManager {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         getSessionHelper = new SessionHelper(driver);
+        getProjectHelper = new ProjectHelper(driver);
         openLoginPage("http://shipovalov.net");
         getSessionHelper.login(new UserData()
                 .withUserPassword("luxoft")
@@ -28,23 +34,6 @@ public class ApplicationManager {
 
     private void openLoginPage(final String baseUrl) {
         driver.get(baseUrl + "/login_page.php");
-    }
-
-    public void submitProjectForm() {
-        driver.findElement(By.cssSelector("input.button")).click();
-    }
-
-    public void fillProjectForm(ProjectData projectData) {
-        driver.findElement(By.name("name")).click();
-        driver.findElement(By.name("name")).clear();
-        driver.findElement(By.name("name")).sendKeys(projectData.getProjectName());
-        driver.findElement(By.name("description")).click();
-        driver.findElement(By.name("description")).clear();
-        driver.findElement(By.name("description")).sendKeys(projectData.getProjectDescription());
-    }
-
-    public void initProjectCreation() {
-        driver.findElement(By.xpath("//table[3]/tbody/tr[1]/td/form/input[2]")).click();
     }
 
     public void openManageProjectPage() {
@@ -60,7 +49,4 @@ public class ApplicationManager {
         driver.quit();
     }
 
-    public boolean selectFirstProject() {
-        return true;
-    }
 }
